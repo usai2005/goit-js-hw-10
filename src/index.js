@@ -24,9 +24,12 @@ function onInput(e) {
     const countryName = e.target.value.trim();
 
 // calling a fetch function
-    fetchCountries(countryName)
+    if (countryName.length !== 0) {
+        fetchCountries(countryName)
         .then(sortCountries)
-        .catch(onFetchError);    
+        .catch(onFetchError);  
+    }
+      
 };
 
 // sorting web query results

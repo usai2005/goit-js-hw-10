@@ -70,3 +70,8 @@ ul {
 .item-img {
   margin-right: 10px;
 }
+
+/* [id='NotiflixNotifyWrap'] > div > .nx-message-icon {
+width: 30px !important;
+height: 30px !important;
+} */
