@@ -71,7 +71,8 @@ ul {
   margin-right: 10px;
 }
 
-/* [id='NotiflixNotifyWrap'] > div > .nx-message-icon {
-width: 30px !important;
-height: 30px !important;
-} */
+[id='NotiflixNotifyWrap'] > div > .nx-message-icon {
+  padding: 7px;
+  width: 25px !important;
+  height: 25px !important;
+}

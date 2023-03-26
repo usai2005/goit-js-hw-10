@@ -1,13 +1,15 @@
 import '@fortawesome/fontawesome-free/js/all.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import debounce from 'lodash.debounce';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Notiflix from 'notiflix';
 import './css/styles.css';
 
 const Notify = Notiflix.Notify;
 
-Notiflix.Notify.init({useFontAwesome: true, fontAwesomeIconStyle: 'shadow', fontAwesomeIconSize: '14px',});
+Notiflix.Notify.init({
+    useFontAwesome: true, fontAwesomeIconStyle: 'shadow',
+    failure: { fontAwesomeClassName: 'fas fa-times-circle ', }, info: {fontAwesomeClassName: 'fas fa-info-circle',},
+});
 
 import { fetchCountries } from './fetchCountries';
 
@@ -40,7 +42,7 @@ function sortCountries(name) {
 
     if (name.status === 404) {
 
-        Notify.failure('Oops, there is no country with that name',{useFontAwesome: true, fontAwesomeIconStyle: 'shadow', fontAwesomeClassName: 'fas fa-times-circle ', fontAwesomeIconSize: '14px',});
+        Notify.failure('Oops, there is no country with that name');
         
     } else if (name.length > 10) {
 
@@ -66,10 +68,8 @@ function sortCountries(name) {
 // more then 10 countries found
 function moreThenTenCountriesInList() {
 
-    Notify.info('Too many matches found. Please enter a more specific name.', { fontAwesomeClassName: 'fas fa-info-circle', });
-
-        // Notify.info('Too many matches found. Please enter a more specific name.', { useFontAwesome: true, fontAwesomeIconStyle: 'shadow', fontAwesomeIconSize: '14px', fontAwesomeClassName: 'fas fa-info-circle', })
-   };
+    Notify.info('Too many matches found. Please enter a more specific name.');
+};
 
 // 2 - 10 countries found
 function TwoTenCountriesInList(shortArr) {
